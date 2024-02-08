@@ -1,3 +1,6 @@
+# Concepts Addressed : Shell, calendar, command history, date, free space on disk drives, exit.
+# Retrospective : Typing went smoothly, 
+Uploading the assignment could have gone better, but we figured it out so next time it should be easier. To make it better reading and reviewing the text ahead of time would make it easier. #
 Last login: Thu Feb  8 14:38:56 on ttys000
 (base) oliviamanring@Vias-MacBook-Air ~ % >....                                                                                                                                                             
              1  2  3  
