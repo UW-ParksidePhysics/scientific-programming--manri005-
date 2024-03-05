@@ -1,22 +1,25 @@
-m = v*p
-v = 1000
-p = {
-  'iron': 7.874,
-  'air' : 1.225,
-  'gasoline' : 0.755, 
-  'ice' : 0.917
-  'human body' : 1.05,
-  'silver' : 10.49,
-  'platinum' : 21.45'
+def calculate_mass(density_in_grams_per_cm3):
+  # Volume of one liter in cm^3
+  volume_cm3 = 1000
+
+  # Calculate mass using density = mass / volume
+  mass_in_grams = density_in_grams_per_cm3 * volume_cm3
+
+  return mass_in_grams
+
+# Density values in g/cm^3
+density_values = {
+  "Iron": 7.87,
+  "Air": 0.001225,
+  "Gasoline": 0.755,
+  "Ice": 0.9167,
+  "Human body": 1.06,
+  "Silver": 10.49,
+  "Platinum": 21.45
 }
-iron_mass = v*p['iron']
-air_mass = v*p['air']
-gasoline_mass = v*p['gasoline']
-ice_mass = v*p['ice']
-human_body_mass = v*p['human body']
-silver_mass = v*p['silver']
-platinum_mass = v*p['platinum']
 
-print(iron_mass)
-
+# Calculate and print the mass of one liter for each substance
+for substance, density in density_values.items():
+  mass_in_grams = calculate_mass(density)
+  print(f"Mass of one liter of {substance}: {mass_in_grams:} grams")
  
