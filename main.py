@@ -1,1 +1,1 @@
-import computing_with_formulas.calculate_cook_egg_time
+import numpy as np
