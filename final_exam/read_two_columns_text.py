@@ -6,24 +6,30 @@ __author__ = 'Cristian Marquez'
 
 import numpy as np
 
-
-def read_data_from_file(filename):
-    """
-    Read two columns of data from a text file.
-
-    :param filename: str
-        Name of the file to be read.
-    :return data: ndarray
-        Columns of data as rows of an array.
-    """
+def read_two_column_text(file_name):
     try:
-        data = np.loadtxt(filename).transpose()
-    except OSError as err:
-        print(f'Error: {err}')
-    return data
+        data = open(file_name, 'r')
+    except OSError as e:
+        print("Error opening file:", e)
+        return None
 
+    data_contents = data.readlines()
+    data.close()
+    data_list_one = []
+    data_list_two = []
+    for line in data_contents:
+        columns = line.split()
+        if len(columns) != 2:
+            print("Error: Line does not contain two columns:", line)
+            continue
+        try:
+            column_one = float(columns[0])
+            column_two = float(columns[1])
+            data_list_one.append(column_one)
+            data_list_two.append(column_two)
+        except ValueError:
+            print("Error: Failed to convert columns to float:", line)
+            continue
 
-if __name__ == "__main__":
-    test_file = '../python/volumes_energies.dat'
-    test_data = read_data_from_file(test_file)
-    print(f'test_data = {test_data}, shape = {test_data.shape}')
+    data_array = np.array([data_list_one, data_list_two])
+    return data_array
