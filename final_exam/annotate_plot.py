@@ -39,3 +39,12 @@ if __name__ == "__main__":
     plt.plot(5, 10)
     annotate_plot(test_annotations)
     plt.show()
+        'string': f"Created by Kelsey {datetime.today().isoformat()}",
+        'position': np.array([4.75, 9.5]),
+        'alignment': ['left', 'bottom'],
+        'fontsize': 10
+    }
+
+    plt.plot(5, 10)
+    annotate_plot(test_annotations)
+    plt.show()
