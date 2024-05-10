@@ -5,21 +5,17 @@ Calculate quadratic coefficients for a dataset.
 __author__ = 'Cristian Marquez'
 
 import numpy as np
+from read_two_column_text import read_two_column_text
 
 
-def compute_quadratic_coefficients(data):
-    """
-    Calculate quadratic coefficients for a given dataset.
-
-    :param data: ndarray, shape(2,M)
-    :return: quadratic_coefficients: ndarray, shape(3,)
-    """
-    quadratic_coefficients = np.polyfit(data[0], data[1], 2)
-    ordered_quadratic_coefficients = [quadratic_coefficients[-1], quadratic_coefficients[1], quadratic_coefficients[0]]
-
+def calculate_quadratic_fit(data_array):
+    x_values = data_array[0, :]
+    y_values = data_array[1, :]
+    quadratic_coefficients = np.polynomial.polynomial.polyfit(x_values, y_values, 2)
     return quadratic_coefficients
 
+
 if __name__ == "__main__":
-    value_names = ['quadratic coefficient', 'linear coefficient', 'constant coefficient']
-    for name, value in zip(value_names, compute_quadratic_coefficients([np.linspace(-1, 1), np.linspace(-1, 1)**2])):
-        print(f'{name}: {value}')
+    data = np.array([np.linspace(-1, 1), np.linspace(-1, 1)**2])
+    print(calculate_quadratic_fit(data))
+    # print(calculate_quadratic_fit(read_two_column_text('volume_energies')))
