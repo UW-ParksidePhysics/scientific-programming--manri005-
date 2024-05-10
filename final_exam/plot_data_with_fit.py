@@ -4,18 +4,17 @@
 
 __author__ =  'Olivia Manring'
 
-
 import numpy as np
 import matplotlib.pyplot as plt
+import curve_fit_array as curve_fit_array
 
-def plot_data_with_fit(data, fit_curve, data_format="o", fit_format=""):
-    scatter_plot = plt.plot(data[0], data[1], data_format, color='Black')
-    curve_plot = plt.plot(fit_curve[0], fit_curve[1], fit_format, color='Orange')
+def plot_data_with_fit(data_array, fit_curve, data_format="x", fit_format="--"):
+    scatter_plot = plt.plot(data_array[0], data_array[1], data_format)
+    curve_plot = plt.plot(fit_curve[0], fit_curve[1], fit_format)
     return scatter_plot, curve_plot
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     data = [[-2, -1, 0, 1, 2], [4, 1, 0, 1, 4]]
-    fit_curve = [np.linspace(-2, 2), np.linspace(-2, 2) ** 2]
-
-    scatter_plot, curve_plot = plot_data_with_fit(data, fit_curve)
+    test_curve = [np.linspace(-2, 2), np.linspace(-2, 2) ** 2]
+    plot_data_with_fit(data, test_curve)
     plt.show()
